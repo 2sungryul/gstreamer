@@ -21,7 +21,11 @@ $ gst-launch-1.0 -v udpsrc port=8001 ! application/x-rtp,encoding-name=H264,payl
 
 # Windows에서 gstreamer 설치하는 방법
 
-https://gstreamer.freedesktop.org/download<img width="921" height="88" alt="image" src="https://github.com/user-attachments/assets/ad2221fe-86d7-48d8-a1a6-5591edb3ce22" />
+https://gstreamer.freedesktop.org/download
+
+MSVC 64비트 runtime installer만 설치하면 됨, 시스템 환경변수 path에 실행파일 경로 C:\gstreamer\1.0\msvc_x86_64\bin 추가
+
+> gst-launch-1.0 --help -> 도움말 출력되면 설치확인
 
 # Windows에서 영상수신하는 명령어
 
