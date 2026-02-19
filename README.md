@@ -19,8 +19,8 @@ $ gst-launch-1.0 -q libcamerasrc ! video/x-raw,format=YUY2,width=640,height=480 
 ```bash
 PS> gst-launch-1.0 -v udpsrc port=8001 ! ‘application/x-rtp,encoding-name=(string)H264,payload=(int)96’ ! rtph264depay ! queue ! avdec_h264 ! videoconvert! autovideosink
 ```
- -종료는 ctrl+c
- -port는 server의 port와 동일하게 설정해야함
+ - 종료는 ctrl+c
+ - port는 server의 port와 동일하게 설정해야함
  
 # How to install gstreamer on wsl2-Ubuntu20.04
 
