@@ -2,18 +2,18 @@
 
 # how to send camera image on Raspberry Pi5
 
-- Raspberry Pi5 보드에는 gsteramer가 설치되어 있음
-- 도움말 출력하면 설치 확인
 ```bash
 $ gst-launch-1.0 --help 
 ```
-- host의 ip주소는 영상을 수신할 컴퓨터의 ip주소임
-- port는 1024번 이상 아무거나 사용가능하고 client의 port번호와 일치해야함
-- 종료는 Ctrl+c를 누르면 됨
+- Raspberry Pi5 보드에는 gsteramer가 설치되어 있음
+- 도움말 출력하면 설치 확인
 
 ```bash
 $ gst-launch-1.0 -q libcamerasrc ! video/x-raw,format=YUY2,width=640,height=480 ! queue ! videoconvert ! videoflip method=rotate-180 ! x264enc tune=zerolatency bitrate=2000 speed-preset=superfast ! rtph264pay ! udpsink host=203.234.58.xxx port=8001
 ```
+- host의 ip주소는 영상을 수신할 컴퓨터의 ip주소임
+- port는 1024번 이상 아무거나 사용가능하고 client의 port번호와 일치해야함
+- 종료는 Ctrl+c를 누르면 됨
 
 # Windows에서 영상수신하는 명령어
 ```bash
