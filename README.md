@@ -36,8 +36,7 @@ $ gst-launch-1.0 nvarguscamerasrc sensor-id=0 ! 'video/x-raw(memory:NVMM),format
 ```
 # wsl2-Ubuntu20.04에서 영상수신하는 명령어
 ```bash
-$ gst-launch-1.0 -v udpsrc port=8001 ! application/x-rtp,encoding-name=H264,payload=96 ! rtph2
-64depay ! queue ! avdec_h264 ! videoconvert! autovideosink
+$ gst-launch-1.0 -v udpsrc port=8001 ! application/x-rtp,encoding-name=H264,payload=96 ! rtph264depay ! queue ! avdec_h264 ! videoconvert! autovideosink
 ```
 # Windows에서 gstreamer 설치하는 방법
 
@@ -45,9 +44,11 @@ https://gstreamer.freedesktop.org/download
 
 MSVC 64비트 runtime installer만 설치하면 됨, 시스템 환경변수 path에 실행파일 경로 C:\gstreamer\1.0\msvc_x86_64\bin 추가
 ```bash
-PS> gst-launch-1.0 --help -> 도움말 출력되면 설치확인
+PS> gst-launch-1.0 --help
 ```
+- 도움말 출력되면 설치확인
 # Windows에서 영상수신하는 명령어
 ```bash
-PS> gst-launch-1.0 -v udpsrc port=8001 ! ‘application/x-rtp,encoding-name=(string)H264,payload=(int)96’ ! rtph264depay ! queue ! avdec_h264 ! videoconvert! autovideosink -> 종료는 ctrl+c
+PS> gst-launch-1.0 -v udpsrc port=8001 ! ‘application/x-rtp,encoding-name=(string)H264,payload=(int)96’ ! rtph264depay ! queue ! avdec_h264 ! videoconvert! autovideosink
 ```
+ - 종료는 ctrl+c
