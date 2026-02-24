@@ -21,7 +21,17 @@ PS> gst-launch-1.0 -v udpsrc port=8001 ! ‘application/x-rtp,encoding-name=(str
 ```
  - 종료는 ctrl+c
  - port는 server의 port와 동일하게 설정해야함
- 
+
+# How to install gstreamer on wsl2-Ubuntu24.04
+
+```bash
+$ sudo apt install -y gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav
+```
+
+# wsl2-Ubuntu24.04에서 영상수신하는 명령어
+```bash
+$ gst-launch-1.0 -v udpsrc port=8001 ! application/x-rtp,encoding-name=H264,payload=96 ! rtph264depay ! queue ! avdec_h264 ! videoconvert! ximagesink
+``` 
 # How to install gstreamer on wsl2-Ubuntu20.04
 
 jetson보드에는 gsteramer가 설치되어 있음
